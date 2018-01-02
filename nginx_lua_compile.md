@@ -6,10 +6,7 @@ nginx本体:http://nginx.org/
 export LUAJIT_LIB=/usr/local/lib
 export LUAJIT_INC=/usr/local/include/luajit-2.1
 
- ./configure --prefix=/opt/nginx \
-         --with-ld-opt="-Wl,-rpath,/usr/local/sbin/libluajit.so" \
-         --add-module=/home/download/ngx_devel_kit \
-         --add-module=/home/download/lua-nginx-module
+ ./configure --prefix=/opt/nginx --with-ld-opt="-Wl,-rpath,/usr/local/sbin/libluajit.so" --add-module=/home/download/ngx_devel_kit --add-module=/home/download/lua-nginx-module
 
 make && make install好nginx之后,把luajit的库软连接到库文件的环境变量,2108-01-01测试时的命令是:
 ln -s /usr/local/lib/libluajit-5.1.so.2 /lib/libluajit-5.1.so.2
@@ -17,3 +14,5 @@ ln -s /usr/local/lib/libluajit-5.1.so.2 /lib/libluajit-5.1.so.2
 nginx命令启动nginx,
 nginx -s reload|reopen|stop|quit重新加载配置|重启|停止|退出,
 nginx -t测试配置是否有语法错误
+
+nginx可以有两个,把有lua模块编译的nginx软连接到/usr/local/sbin并命名为ngx_lua可以和原有nginx并存:ln -s /opt/nginx/sbin/nginx /usr/local/sbin/ngx_lua
