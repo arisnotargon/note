@@ -25,7 +25,7 @@ if __name__ == "__main__":
     mil = 1000000
     l = get_primes(mil)
     cnt = 0
-    mil_arr = [True] * mil
+    mil_arr = [True] * (mil + 1)
     for i in range(mil - 1, 0, -1):
         if l[i]:
             maxtimes = math.floor(mil / i)
