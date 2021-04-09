@@ -23,6 +23,6 @@ systemctl restart gdm
 输入法
 先安装fcitx，然后google pinyin和mozc
 
-3。
+3.
 resolvconf的问题
 用apt把resolvconf重新安装一次
