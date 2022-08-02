@@ -44,6 +44,15 @@ curl -H "Content-Type: application/json" -XPUT 'http://localhost:9200/gb' -d '
               "ignore_above" : 256
             }
           }
+        },
+        "nickname" : {
+          "type" : "text",
+          "fields" : {
+            "keyword" : {
+              "type" : "keyword",
+              "ignore_above" : 256
+            }
+          }
         }
       }
   }
