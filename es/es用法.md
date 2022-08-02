@@ -61,7 +61,7 @@ curl -X PUT "localhost:9200/megacorp/employee/1?pretty" -H 'Content-Type: applic
 (/{index}/_doc/{id}, /{index}/_doc, or /{index}/_create/{id})
 ```
 
-# 查询
+# 准备测试数据
 ## 创建mapping
 
 mapping类似关系型数据库中的表结果定义（DDL），虽然es中无需创建mapping也可以使用（es会自动创建），但为了方便管理，提高使用效率，在准备数据前最好先创建mapping（尤其是生产环境中）
@@ -103,6 +103,7 @@ keyword类型的数据可以满足电子邮箱、主机名、状态码等数据�
 curl -X DELETE "localhost:9200/us?pretty"
 ```
 
+# 搜索入门
 ## match检索
 match部分匹配，搜索字段中包含关键词时可以得到结果
 ``` bash
@@ -143,3 +144,5 @@ GET /gb/_search
   }
 }
 ```
+
+
